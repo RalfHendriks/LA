@@ -1,1 +1,1 @@
-# LA
+# Lineaire Algebra
