@@ -5,50 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3.5*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-
-        <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" x:Name="c" Background="Black">
-            <Path Fill = "LightCoral" Margin = "201.424,0,236.325,0"
-         Stretch = "Fill" Height = "124.929">
-                <Path.Data>
-                    <PathGeometry>
-                        <PathFigure StartPoint = "50,0" IsClosed = "True">
-                            <LineSegment Point = "100,50"/>
-                            <LineSegment Point = "50,100"/>
-                            <LineSegment Point = "0,50"/>
-                        </PathFigure>
-                    </PathGeometry>
-                </Path.Data>
-            </Path>
-        </Canvas>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.5*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label  Grid.Column="0" Grid.Row="0" x:Name="x" Content="Lenght:" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
-                <Label  Grid.Column="0" Grid.Row="1" x:Name="y" Content="Direction:" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
-                <TextBox Grid.Column="1" Grid.Row="0" x:Name="tbX" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120px"/>
-                <TextBox Grid.Column="1" Grid.Row="1" x:Name="tbY" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120px"/>
-                <Button x:Name="button" Content="Add Vector" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Click="button_Click"/>
-            </Grid>
-        </Grid>
-
+        Title="MainWindow" Height="831" Width="1208" KeyDown="Window_KeyDown" MouseWheel="viewPort_MouseWheel"
+        MouseDown="viewPort_MouseDown" MouseMove="viewPort_MouseMove" MouseUp="viewPort_MouseUp">
+    <Grid Background="Black">
+        <Viewport3D HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="viewPort" >
+            <ModelVisual3D x:Name="model">
+                <ModelVisual3D.Content>
+                    <Model3DGroup x:Name="group">
+                        <AmbientLight Color="DarkGray" />
+                        <DirectionalLight Color="White" Direction="-5,-5,-7" />
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+        </Viewport3D>
+        <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="c" Background="Black" Visibility="Hidden"/>
     </Grid>
 </Window>
